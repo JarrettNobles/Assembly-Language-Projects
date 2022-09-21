@@ -1,0 +1,50 @@
+     1                                  ; NAME	Jarrett Nobles
+     2                                  ; Assignment	Program 1: Data Storage
+     3                                  ; Date	9/20/2022
+     4                                  ; Etc...
+     5                                  
+     6                                  SECTION .data
+     7                                  ; define data/variables here.  Think DB, DW, DD, DQ
+     8 00000000 02000400060008000A-     a1: 	DW 	2,4,6,8,10
+     9 00000009 00                 
+    10 0000000A 0102030405              a2: 	DB 	1,2,3,4,5
+    11 0000000F 0A000000140000001E-     a3:	DD	10,20,30,40
+    12 00000018 00000028000000     
+    13 0000001F 100000000000000011-     a4:	DQ	10h,11h,12h,13h
+    14 00000028 000000000000001200-
+    15 00000031 000000000000130000-
+    16 0000003A 0000000000         
+    17                                  
+    18 0000003F CEFF                    b1:	DW	-50
+    19 00000041 D3                      b2:	DB	-45
+    20 00000042 E2FF                    b3:	DW	-30
+    21 00000044 E7                      b4:	DB	-25
+    22 00000045 ECFF                    b5:	DW	-20
+    23                                  
+    24 00000047 4265617273              c1:	DB	'Bears'
+    25 0000004C 64000000                c2:	DD	100
+    26 00000050 0000                    c3:	DW	0
+    27 00000052 476F203B                c4:	DB	'Go ;'
+    28 00000056 4D657263657221          c5:	DB	'Mercer!'
+    29                                  
+    30 0000005D 64                      d1:	DB	100
+    31 0000005E 0001                    d2:	DW	100h
+    32 00000060 04000000                d3:	DD	100b
+    33 00000064 4000                    d4:	DW	100q
+    34 00000066 64                      d5:	DB	100d
+    35                                  SECTION .bss
+    36                                  ; define uninitialized data here
+    37                                  
+    38                                  SECTION .text
+    39                                  global _main
+    40                                  _main:
+    41                                  
+    42                                  ; put your code here.
+    43                                  
+    44                                  
+    45                                  
+    46                                  ; Normal termination code
+    47 00000000 B801000000              mov eax, 1
+    48 00000005 BB00000000              mov ebx, 0
+    49 0000000A CD80                    int 80h
+    50                                  
