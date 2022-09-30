@@ -1,0 +1,65 @@
+     1                                  ; Jarrett Nobles
+     2                                  ; Project 2 Adding Integers
+     3                                  ; 9/30/2022
+     4                                  ; Etc...
+     5                                  
+     6                                  SECTION .data
+     7                                  ; define data/variables here.  Think DB, DW, DD, DQ
+     8                                  
+     9                                  SECTION .bss
+    10                                  ; define uninitialized data here
+    11                                  
+    12                                  SECTION .text
+    13                                  global _main
+    14                                  _main:
+    15                                  
+    16 00000000 66B84602                mov AX, 0246h
+    17 00000004 66BBABDC                mov BX, 0DCABh
+    18 00000008 6601D8                  add ax,bx
+    19                                  
+    20 0000000B 66B8CDAB                mov AX, 0ABCDh
+    21 0000000F 66BBBADC                mov BX, 0DCBAh 
+    22 00000013 6601D8                  add ax,bx
+    23                                  
+    24 00000016 66B8FFFF                mov AX, 0FFFFh
+    25 0000001A 66BB0100                mov BX, 0001h
+    26 0000001E 6601D8                  add ax,bx
+    27                                  
+    28 00000021 66B8F0F0                mov AX, 0F0F0h
+    29 00000025 66BBF0F0                mov BX, 0F0F0h 
+    30 00000029 6601D8                  add ax,bx
+    31                                  
+    32 0000002C 66B86824                mov AX, 2468h
+    33 00000030 66BB6824                mov BX, 2468h
+    34 00000034 6601D8                  add ax,bx 
+    35                                  
+    36 00000037 66B8FF7F                mov AX, 7FFFh
+    37 0000003B 66BB0100                mov BX, 0001h
+    38 0000003F 6601D8                  add ax,bx
+    39                                  
+    40 00000042 66B8CDAB                mov AX, 0ABCDh
+    41 00000046 66BBDCFE                mov BX, 0FEDCh
+    42 0000004A 6601D8                  add ax,bx
+    43                                  
+    44 0000004D 66B80B0B                mov AX, 0B0Bh
+    45 00000051 66BB1EA1                mov BX, 0A11Eh
+    46 00000055 6601D8                  add ax,bx
+    47                                  
+    48 00000058 66B8FF7F                mov AX, 7FFFh
+    49 0000005C 66BBFF7F                mov BX, 7FFFh
+    50 00000060 6601D8                  add ax,bx
+    51                                  
+    52 00000063 66B8401F                mov AX, 8000
+    53 00000067 66BB401F                mov BX, 8000
+    54 0000006B 6601D8                  add ax,bx
+    55                                  
+    56                                  
+    57                                  
+    58                                  ; put your code here.
+    59                                   
+    60                                  
+    61                                  
+    62                                  ; Normal termination code
+    63 0000006E B801000000              mov eax, 1
+    64 00000073 BB00000000              mov ebx, 0
+    65 00000078 CD80                    int 80h
