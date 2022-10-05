@@ -1,0 +1,64 @@
+     1                                  ; Jarrett Nobles
+     2                                  ; Project 3, summing arrays
+     3                                  ; 10/5/2022
+     4                                  ; This code sums all of the elements in each of the arrays and places the sum in a 
+     5                                  ; corresponding sum variable. It also places the gradnTotal into a grandtotal variable.
+     6                                  
+     7                                  SECTION .data
+     8                                  ; define data/variables here.  Think DB, DW, DD, DQ
+     9 00000000 FFFEFCFB                bArray: DB  -1,-2,-4,-5
+    10 00000004 000001000200030004-     wArray: DW  0,1,2,3,4
+    11 0000000D 00                 
+    12 0000000E 4201000022030000D2-     dArray: DD  322,322h,322q,1833,1833h
+    13 00000017 000000290700003318-
+    14 00000020 0000               
+    15 00000022 00                      bArraySum:  DB  0
+    16 00000023 0000                    wArraySum:  DW  0
+    17 00000025 00000000                dArraySum:  DD  0
+    18 00000029 00000000                grandTotal: DD  0
+    19                                  
+    20                                  SECTION .bss
+    21                                  ; define uninitialized data here
+    22                                  
+    23                                  SECTION .text
+    24                                  global _main
+    25                                  _main:
+    26                                  
+    27                                  ; put your code here.
+    28 00000000 023D[01000000]          add BH,[bArray +1]
+    29 00000006 023D[02000000]          add BH,[bArray +2]
+    30 0000000C 023D[03000000]          add BH,[bArray +3]
+    31 00000012 023D[04000000]          add BH,[bArray +4]
+    32 00000018 023D[05000000]          add BH,[bArray +5]
+    33 0000001E 883D[22000000]          mov[bArraySum], BH
+    34 00000024 0FBEC7                  movsx eax, BH
+    35                                  
+    36 00000027 0225[05000000]          add AH,[wArray +1]
+    37 0000002D 0225[06000000]          add AH,[wArray +2]
+    38 00000033 0225[07000000]          add AH,[wArray +3]
+    39 00000039 0225[08000000]          add AH,[wArray +4]
+    40 0000003F 0225[09000000]          add AH,[wArray +5]
+    41 00000045 8825[23000000]          mov[wArraySum], AH
+    42 0000004B 0FBEDC                  movsx ebx, AH
+    43                                  
+    44 0000004E 022D[0F000000]          add CH,[dArray+1]
+    45 00000054 022D[10000000]          add CH,[dArray+2]
+    46 0000005A 022D[11000000]          add CH,[dArray+3]
+    47 00000060 022D[12000000]          add CH,[dArray+4]
+    48 00000066 022D[13000000]          add CH,[dArray+5]
+    49 0000006C 882D[25000000]          mov [dArraySum], CH
+    50 00000072 0FBECD                  movsx ecx, CH 
+    51                                  
+    52                                  ; sum the arrays 
+    53 00000075 0235[23000000]          add DH,[bArraySum +1]
+    54 0000007B 0235[25000000]          add DH,[wArraySum +2]
+    55 00000081 0235[28000000]          add DH,[dArraySum +3]
+    56 00000087 8835[29000000]          mov[grandTotal], DH
+    57 0000008D 0FBED6                  movsx edx, DH
+    58                                  
+    59                                  lastBreak:
+    60                                  
+    61                                  ; Normal termination code
+    62 00000090 B801000000              mov eax, 1
+    63 00000095 BB00000000              mov ebx, 0
+    64 0000009A CD80                    int 80h
