@@ -1,0 +1,88 @@
+     1                                  ; JARRETT NOBLES
+     2                                  ; P4 FIBONACCI SEQUENCE
+     3                                  ; 10/12/2022
+     4                                  ; Etc...
+     5                                  
+     6                                  SECTION .data
+     7                                  ; define data/variables here.  Think DB, DW, DD, DQ
+     8                                  
+     9                                  SECTION .bss
+    10                                  ; define uninitialized data here
+    11 00000000 <res 00000020>          Fibs: RESW 16
+    12 00000020 <res 00000002>          Sum:  RESW 1
+    13                                  SECTION .text
+    14                                  global _main
+    15                                  _main:
+    16                                  
+    17                                  ; put your code here.
+    18 00000000 66C705[00000000]00-     MOV WORD[Fibs], 0
+    19 00000008 00                 
+    20 00000009 66C705[02000000]01-     MOV WORD[Fibs+2],1
+    21 00000011 00                 
+    22                                  
+    23 00000012 66A1[00000000]          MOV AX, [Fibs]
+    24 00000018 660305[02000000]        ADD AX,[Fibs+2]
+    25 0000001F 66A3[04000000]          MOV [Fibs+4],AX
+    26                                  
+    27 00000025 66A1[02000000]          MOV AX, [Fibs+2]
+    28 0000002B 660305[04000000]        ADD AX,[Fibs+4]
+    29 00000032 66A3[06000000]          MOV [Fibs+6],AX
+    30                                  
+    31 00000038 66A1[04000000]          MOV AX, [Fibs+4]
+    32 0000003E 660305[06000000]        ADD AX,[Fibs+6]
+    33 00000045 66A3[08000000]          MOV [Fibs+8],AX
+    34                                  
+    35 0000004B 66A1[06000000]          MOV AX, [Fibs+6]
+    36 00000051 660305[08000000]        ADD AX,[Fibs+8]
+    37 00000058 66A3[0A000000]          MOV [Fibs+10],AX
+    38                                  
+    39 0000005E 66A1[08000000]          MOV AX, [Fibs+8]
+    40 00000064 660305[0A000000]        ADD AX,[Fibs+10]
+    41 0000006B 66A3[0C000000]          MOV [Fibs+12],AX
+    42                                  
+    43 00000071 66A1[0A000000]          MOV AX, [Fibs+10]
+    44 00000077 660305[0C000000]        ADD AX,[Fibs+12]
+    45 0000007E 66A3[0E000000]          MOV [Fibs+14],AX
+    46                                  
+    47 00000084 66A1[0C000000]          MOV AX, [Fibs+12]
+    48 0000008A 660305[0E000000]        ADD AX,[Fibs+14]
+    49 00000091 66A3[10000000]          MOV [Fibs+16],AX
+    50                                  
+    51 00000097 66A1[0E000000]          MOV AX, [Fibs+14]
+    52 0000009D 660305[10000000]        ADD AX,[Fibs+16]
+    53 000000A4 66A3[12000000]          MOV [Fibs+18],AX
+    54                                  
+    55 000000AA 66A1[10000000]          MOV AX, [Fibs+16]
+    56 000000B0 660305[12000000]        ADD AX,[Fibs+18]
+    57 000000B7 66A3[14000000]          MOV [Fibs+20],AX
+    58                                  
+    59 000000BD 66A1[12000000]          MOV AX, [Fibs+18]
+    60 000000C3 660305[14000000]        ADD AX,[Fibs+20]
+    61 000000CA 66A3[18000000]          MOV [Fibs+24],AX
+    62                                  
+    63 000000D0 66A1[14000000]          MOV AX, [Fibs+20]
+    64 000000D6 660305[18000000]        ADD AX,[Fibs+24]
+    65 000000DD 66A3[1A000000]          MOV [Fibs+26],AX
+    66                                  
+    67 000000E3 66A1[18000000]          MOV AX, [Fibs+24]
+    68 000000E9 660305[1A000000]        ADD AX,[Fibs+26]
+    69 000000F0 66A3[1C000000]          MOV [Fibs+28],AX
+    70                                  
+    71 000000F6 66A1[1A000000]          MOV AX, [Fibs+26]
+    72 000000FC 660305[1C000000]        ADD AX,[Fibs+28]
+    73 00000103 66A3[1E000000]          MOV [Fibs+30],AX
+    74                                  
+    75                                  
+    76                                  
+    77                                  lastBreak:
+    78                                  
+    79                                  
+    80                                  
+    81                                  
+    82                                  
+    83                                  
+    84                                  
+    85                                  ; Normal termination code
+    86 00000109 B801000000              mov eax, 1
+    87 0000010E BB00000000              mov ebx, 0
+    88 00000113 CD80                    int 80h
